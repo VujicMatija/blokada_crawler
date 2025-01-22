@@ -4,7 +4,7 @@ from scrapy.linkextractors import LinkExtractor
 from scrapy.commands.shell import Command
 import os
 
-KLJUCNE_RECI = ["student", "blokada", "incident", "referendum", "krv", "protest", "glumci", "mladi", "11:52", "zahtev", "štrajk", "sindikat", "prosveta", "fakultet"]
+KLJUCNE_RECI = ["student", "studenti","blokada", "blokade" ,"incident", "referendum", "krv", "protest", "glumci", "mladi", "11:52", "zahtev", "štrajk", "sindikat", "prosveta", "fakultet"]
 linkovi = set()
 
 class CrawlingSpider(CrawlSpider):
@@ -15,6 +15,7 @@ class CrawlingSpider(CrawlSpider):
     rules = [
         Rule(LinkExtractor(allow='/vesti', deny=["/?comments"]), callback='parse'),
         Rule(LinkExtractor(allow='/politika'), callback='parse'),
+
     ]
 
 
